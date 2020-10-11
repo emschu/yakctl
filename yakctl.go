@@ -27,13 +27,12 @@ import (
 	"path"
 	"strconv"
 	"strings"
-	"yakctl/src"
 )
 
 func main() {
 	var configFile = ".yakctl.yml"
 	var configFilePath string
-	var configuration *src.YakCtlConfiguration
+	var configuration *YakCtlConfiguration
 	var verbose bool
 	var forceDeletion bool
 
@@ -93,7 +92,7 @@ func main() {
 					},
 				},
 				Action: func(context *cli.Context) error {
-					src.ClearSession(forceDeletion)
+					ClearSession(forceDeletion)
 					return nil
 				},
 			},
@@ -102,7 +101,7 @@ func main() {
 				Aliases: []string{"p"},
 				Usage:   "Manage defined profiles, default: list available profiles",
 				Action: func(context *cli.Context) error {
-					src.PrintProfileList(configuration)
+					PrintProfileList(configuration)
 					return nil
 				},
 				Subcommands: []*cli.Command{
@@ -116,7 +115,7 @@ func main() {
 							if done {
 								return fmt.Errorf("empty profile_id")
 							}
-							profilePrintErr := src.PrintProfile(configuration, profileID)
+							profilePrintErr := PrintProfile(configuration, profileID)
 							if profilePrintErr != nil {
 								color.Errorf("%v\n", profilePrintErr)
 							}
@@ -134,12 +133,12 @@ func main() {
 								return err
 							}
 							if verbose {
-								profilePrintErr := src.PrintProfile(configuration, profileID)
+								profilePrintErr := PrintProfile(configuration, profileID)
 								if profilePrintErr != nil {
 									fmt.Printf("%v\n", profilePrintErr)
 								}
 							}
-							err2 := src.LoadSession(configuration, profileID)
+							err2 := LoadSession(configuration, profileID)
 							if err2 != nil {
 								return err
 							}
@@ -175,7 +174,7 @@ func main() {
 					if len(terminalIDs) > 0 {
 						color.Info.Printf("Affected terminal ids: %v\n", strings.Join(terminalIDs, ","))
 					}
-					src.ExecuteCommand(command, &terminalIDs)
+					ExecuteCommand(command, &terminalIDs)
 					return nil
 				},
 			},
@@ -184,7 +183,7 @@ func main() {
 				Aliases: []string{"s"},
 				Usage:   "List status (=sessions, terminals) of the current yakuake instance",
 				Action: func(context *cli.Context) error {
-					src.ShowStatus()
+					ShowStatus()
 					return nil
 				},
 			},
@@ -210,13 +209,13 @@ func getProfileID(context *cli.Context) (int64, bool, error) {
 }
 
 // method to handle startup of the application
-func initApplication(configFile *string) *src.YakCtlConfiguration {
-	isValid := src.CheckRequirements()
+func initApplication(configFile *string) *YakCtlConfiguration {
+	isValid := CheckRequirements()
 	if !isValid {
 		color.Errorf("Problems detected. yakctl is unable to start.\n")
 		os.Exit(1)
 	}
-	c, confErr := src.ReadConfig(*configFile)
+	c, confErr := ReadConfig(*configFile)
 	if confErr != nil {
 		color.Errorf("Invalid configuration detected in configuration file '%s'\n%v\n", *configFile, confErr)
 		os.Exit(1)

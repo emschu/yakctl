@@ -106,7 +106,7 @@ profiles:
           - echo "terminal4"
       - name: go-shell
         commands:
-          - cd ~/go/src/yakctl
+          - cd ~/go/src
   - name: other_workspace
     tabs:
       - name: raspi3_ssh
