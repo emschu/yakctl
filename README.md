@@ -40,7 +40,7 @@ COPYRIGHT:
 ```
 
 ## Setup
-1. Get this project `go get github.com/emschu/yakctl` and build it: `go build yakctl.go`
+1. Get this project `go get github.com/emschu/yakctl` and build it: `go build yakctl.go conf.go yakuake.go`
 2. Create a `~/.yakctl.yml` configuration file and read the configuration section below.
 3. Execute the binary and place or link it in your $PATH
 
