@@ -1,0 +1,55 @@
+---
+profiles:
+  - name: default
+    clear: true
+    force: true
+    tabs:
+      - name: raspi1_ssh
+        monitorActivity: true
+        monitorSilence: true
+        disableInput: true
+        protected: true
+        commands:
+          - ssh pi@10.10.10.11
+          - echo 'hello world says the pi'
+      - name: raspi2_ssh
+        commands:
+          - ssh pi@10.10.10.12
+        protected: true
+      - name: left-right split terminal
+        split: lr
+        commands:
+          - cd /var/www/html
+        terminal1:
+          - top
+        terminal2:
+          - htop
+      - name: top-bottom split terminal
+        split: tb
+        disableInput: true
+        commands:
+          - "echo 'hello'"
+          - echo 'hello2'
+          - echo 'hello3'
+      - name: quad_tab
+        split: quad
+        monitorActivity: true
+        monitorSilence: true
+        disableInput: true
+        commands:
+          - "echo 'all'"
+        terminal1:
+          - echo "terminal1"
+        terminal3:
+          - echo "terminal3"
+        terminal4:
+          - echo "terminal4"
+      - name: go-shell
+        commands:
+          - cd ~/go/src/yakctl
+  - name: other_workspace
+    tabs:
+      - name: raspi3_ssh
+        commands:
+          - "ssh pi@10.10.10.154"
+        protected: true
