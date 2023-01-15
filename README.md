@@ -3,6 +3,8 @@
 **A simple command line tool to control your [Yakuake](https://kde.org/applications/en/yakuake) terminal 
 instance by describing sessions (tabs and properties) to ease workflows.**
 
+Yakuake is a "drop-down terminal emulator based on Konsole technologies" and is part of the KDE software suite.
+
 This tool makes use of the dbus-interface Yakuake offers and is written in [Golang](https://golang.org/).
 
 ## Command
@@ -136,4 +138,4 @@ $ yakctl exec echo 'hello world'
 **GPL v3** - for details see the [full license text](./LICENSE).
 
 ## More information
-- [Yakuake GitHub repository](https://github.com/KDE/yakuake)
+- [Yakuake KDE Gitlab repository](https://invent.kde.org/utilities/yakuake)
