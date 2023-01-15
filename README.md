@@ -42,12 +42,12 @@ COPYRIGHT:
 ```
 
 ## Setup
-1. Get this project `go get github.com/emschu/yakctl` and build it: `go build yakctl.go conf.go yakuake.go`
+1. Install this project by installing it via `go install github.com/emschu/yakctl@latest`
 2. Create a `~/.yakctl.yml` configuration file and read the configuration section below.
-3. Execute the binary and place or link it in your $PATH
+3. Start using `yakctl`
 
 ### Requirements
-- Yakuake needs to be installed
+- Yakuake of the KDE project needs to be installed
 - `qdbus` command, check with `which qdbus`
 
 ## Configuration
@@ -138,4 +138,4 @@ $ yakctl exec echo 'hello world'
 **GPL v3** - for details see the [full license text](./LICENSE).
 
 ## More information
-- [Yakuake KDE Gitlab repository](https://invent.kde.org/utilities/yakuake)
+- [Yakuake KDE GitLab repository](https://invent.kde.org/utilities/yakuake)

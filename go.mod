@@ -1,4 +1,4 @@
-module yakctl
+module github.com/emschu/yakctl
 
 go 1.18
 
