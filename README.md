@@ -16,7 +16,7 @@ USAGE:
    yakctl [global options] command [command options] [arguments...]
 
 VERSION:
-   1.0.0
+   1.1.2
 
 COMMANDS:
    clear, c    Clear all sessions and terminals

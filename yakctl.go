@@ -47,7 +47,7 @@ func main() {
 		EnableBashCompletion: true,
 		Name:                 "yakctl",
 		Usage:                "Control the yakuake terminal and your terminal sessions",
-		Version:              "1.0.0",
+		Version:              "1.1.2",
 		HideHelp:             false,
 		HideVersion:          false,
 		Copyright: "yakctl\t2020\thttps://github.com/emschu/yakctl\n\n" +
